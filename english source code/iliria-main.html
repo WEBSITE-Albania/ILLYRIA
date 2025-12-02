@@ -7,305 +7,241 @@
   <link rel="icon" type="image/png" href="../images/illyria logo.png">
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Georgia", serif;
-    }
-
-    body {
-      background: #f8f4ef;
-      color: #3a3a3a;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    button {
-      border: none;
-      background-color: #8b6f47;
-      color: white;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 1rem;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #6d5535;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      background-image: url('../images/main/main.jpeg');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-start;
-      padding: 30px;
-    }
-
-    /* TEXT OVER THE HERO IMAGE */
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      display: inline-block;      /* <— prevents full-width stretch */
-      width: auto;                /* <— keeps blur only around text */
-
-      padding: 15px 25px;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #fff;
-      text-align: center;
-      border-radius: 12px;
-
-      background: rgba(0, 0, 0, 0.25);
-      -webkit-backdrop-filter: blur(6px);
-      backdrop-filter: blur(6px);
-
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-
-    /* TOP RIGHT NAVBAR */
-    .top-navbar {
-  display:flex;
-  gap:30px;
-  position:absolute;
-  top:30px;
-  right:30px;
-  background: rgba(0,0,0,0.35); /* match main page */
-  padding:10px 20px;
-  border-radius:12px;
-  z-index:10; /* make sure it’s on top */
-  backdrop-filter: blur(6px); /* optional for glassy effect */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Georgia", serif;
 }
 
-    .top-navbar a {
-      color: #f5f0e6;
-      font-weight: bold;
-      font-size: 1.1rem;
-      position: relative;
-      transition: 0.3s;
-    }
+body {
+  background: #f8f4ef;
+  color: #3a3a3a;
+}
 
-    .top-navbar a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: #f5f0e6;
-      transition: 0.3s;
-    }
+a {
+  text-decoration: none;
+}
 
-    .top-navbar a.active::after,
-    .top-navbar a:hover::after {
-      width: 100%;
-    }
+button {
+  border: none;
+  background-color: #8b6f47;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 6px;
+  transition: 0.3s;
+}
 
-    /* LEFT BLUR SECTION */
-    .left-blur {
-      position: absolute;
-      top: 30px;
-      left: 30px;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.25);
-      padding: 20px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: calc(100vh - 60px);
-      align-items: center;
-    }
+button:hover {
+  background-color: #6d5535;
+}
 
-    .vertical-name {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #e9e2d7;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+/* HERO SECTION */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../images/main/main.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;   /* center content horizontally */
+  align-items: center;       /* center content vertically */
+  padding: 30px;
+}
 
-    .vertical-name span {
-      display: block;
-      line-height: 1.2;
-    }
+/* HERO TEXT - prevent overlap */
+.hero-text {
+  position: relative;        /* changed from absolute */
+  top: auto;
+  left: auto;
+  transform: none;
+  margin: 0 auto;
+  display: block;
+  max-width: 90%;            /* text won't overflow */
+  padding: 15px 25px;
+  font-size: clamp(1rem, 2vw, 2rem); /* responsive font size */
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
-    .social-icons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+/* TOP NAVBAR */
+.top-navbar {
+  display: flex;
+  flex-wrap: wrap;           /* wrap links if too many */
+  justify-content: center;    /* center links if wrapped */
+  gap: 15px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: rgba(0,0,0,0.35);
+  padding: 10px 20px;
+  border-radius: 12px;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+}
 
-    .social-icons a img {
-      width: 30px;
-      height: 30px;
-      filter: brightness(0) invert(1);
-      transition: 0.3s;
-    }
+.top-navbar a {
+  color: #f5f0e6;
+  font-weight: bold;
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  position: relative;
+  transition: 0.3s;
+}
 
-    .social-icons a img:hover {
-      transform: scale(1.1);
-    }
+.top-navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #f5f0e6;
+  transition: 0.3s;
+}
 
-    /* CONTENT SECTIONS */
-    .content-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 100px 10%;
-      gap: 60px;
-      flex-wrap: wrap;
-    }
+.top-navbar a.active::after,
+.top-navbar a:hover::after {
+  width: 100%;
+}
 
-    .content-section:nth-child(even) {
-      flex-direction: row-reverse;
-    }
+/* LEFT BLUR SECTION */
+.left-blur {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.25);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 60px);
+  align-items: center;
+}
 
-    .content-section img {
-      width: 50%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
+.vertical-name {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: bold;
+  color: #e9e2d7;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-    .section-text {
-      width: 45%;
-    }
+.vertical-name span {
+  display: block;
+  line-height: 1.2;
+}
 
-    .section-text h2 {
-      font-size: 2.3rem;
-      margin-bottom: 15px;
-      color: #4b4237;
-    }
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
-    .section-text p {
-      font-size: 1.1rem;
-      line-height: 1.6rem;
-      margin-bottom: 20px;
-    }
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
 
-    /* FOOTER */
-    footer {
-      background: #2e2a25;
-      color: white;
-      padding: 50px;
-      margin-top: 50px;
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-    }
+.social-icons a img:hover {
+  transform: scale(1.1);
+}
 
-    .footer-section {
-      width: 33%;
-    }
+/* CONTENT SECTIONS */
+.content-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 10%;
+  gap: 60px;
+  flex-wrap: wrap;           /* prevents overlap */
+  margin: 50px 0;
+}
 
-    .footer-section h3 {
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
+.content-section:nth-child(even) {
+  flex-direction: row-reverse;
+}
 
-    iframe {
-      width: 100%;
-      height: 250px;
-      border: none;
-      border-radius: 8px;
-    }
+.content-section img {
+  width: 100%;
+  max-width: 500px;          /* prevent huge images on large screens */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
 
-    /* ============================
-      SECTION SEPARATION STYLING
-    ============================ */
+.section-text {
+  flex: 1;
+  min-width: 250px;          /* ensures proper wrapping */
+}
 
-    /* Alternate section backgrounds for visual separation */
-    #restaurant {
-      background: #F3E8D4; /* light warm beige */
-      border-radius: 20px;
-      padding: 80px 10%;
-      margin: 50px 0;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.section-text h2 {
+  font-size: clamp(1.5rem, 2.3vw, 2.3rem);
+  color: #8b6f47;
+  margin-bottom: 20px;
+}
 
-    #restaurant:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+.section-text p {
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.6rem;
+  color: #3a3a3a;
+}
 
-    #rooms {
-      background: #e6d9c4; /* slightly darker beige for contrast */
-      border-radius: 20px;
-      padding: 80px 10%;
-      margin: 50px 0;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.section-text button {
+  background-color: #8b6f47;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: 0.3s;
+}
 
-    #rooms:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+.section-text button:hover {
+  background-color: #6d5535;
+  transform: translateY(-3px);
+}
 
-    #about {
-      background: #f1e9db; /* same as first for rhythm */
-      border-radius: 20px;
-      padding: 80px 10%;
-      margin: 50px 0;
-      box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+/* FOOTER */
+footer {
+  background: #2e2a25;
+  color: white;
+  padding: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;          /* wrap footer sections if screen small */
+  justify-content: space-between;
+  gap: 40px;
+}
 
-    #about:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-    }
+.footer-section {
+  flex: 1 1 250px;           /* responsive width */
+}
 
-    /* Section text styling for readability */
-    .section-text h2 {
-      color: #8b6f47; /* golden accent for headings */
-      margin-bottom: 20px;
-      font-size: 2.3rem;
-    }
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+}
 
-    .section-text p {
-      color: #3a3a3a;
-      font-size: 1.1rem;
-      line-height: 1.6rem;
-    }
+iframe {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 8px;
+}
 
-    /* Buttons inside sections */
-    .section-text button {
-      background-color: #8b6f47;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 8px;
-      font-size: 1rem;
-      margin-top: 20px;
-      transition: 0.3s;
-    }
-
-    .section-text button:hover {
-      background-color: #6d5535;
-      transform: translateY(-3px);
-    }
-    
-    h4{
-      font-weight: normal;
-      color: #fbf4e8;
-    }
-
-    /* LANGUAGE SELECTOR */
+/* LANGUAGE SELECTOR */
 .language-selector {
   position: fixed;
   bottom: 20px;
@@ -317,21 +253,51 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 9999; /* above other content */
+  z-index: 9999;
 }
 
 .language-selector img {
-  height: 45px;     /* circle size */
-  width: 45px;      /* must match height */
+  height: 45px;
+  width: 45px;
   cursor: pointer;
-  border-radius: 50%; /* makes the image a perfect circle */
-  object-fit: cover;  /* ensures the flag fills the circle */
+  border-radius: 50%;
+  object-fit: cover;
   transition: transform 0.3s;
-  border: 1px solid rgb(200, 192, 192); /* optional small border for style */
+  border: 1px solid rgb(200, 192, 192);
 }
 
 .language-selector img:hover {
   transform: scale(1.1);
+}
+
+h4 {
+  font-weight: normal;
+  color: #fbf4e8;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* =========================
+RESPONSIVE BREAKPOINTS
+========================= */
+@media (max-width: 1024px) {
+  .hero-text { font-size: clamp(1rem, 2vw, 1.5rem); padding: 12px 20px; }
+  .top-navbar { gap: 12px; padding: 8px 12px; top: 15px; right: 15px; }
+  .left-blur { height: auto; top: 15px; left: 15px; padding: 12px; }
+}
+
+@media (max-width: 768px) {
+  .content-section { flex-direction: column; padding: 60px 5%; gap: 30px; }
+  .section-text { text-align: center; }
+  .vertical-name { flex-direction: row; gap: 5px; font-size: clamp(1.2rem, 2vw, 2rem); }
+  .hero-text { font-size: clamp(1rem, 2vw, 1.3rem); padding: 10px 15px; }
+}
+
+@media (max-width: 480px) {
+  .top-navbar { flex-direction: column; top: 5px; right: 5px; }
+  .language-selector { bottom: 10px; right: 10px; }
+  .language-selector img { height: 40px; width: 40px; }
+  button { padding: 8px 15px; font-size: 0.9rem; }
+  .vertical-name { font-size: clamp(1rem, 2vw, 1.5rem); flex-direction: row; gap: 3px; }
 }
 
 
@@ -363,7 +329,7 @@
     <!-- LANGUAGE SELECTOR -->
     <div class="language-selector">
       <img src="../images/flags/english flag.jpg" alt="English">
-      <a href="../albanian source code/iliria-main.html"><img src="../images/flags/albanian flag.png" alt="Shqip"></a>
+      <a href="../index.html"><img src="../images/flags/albanian flag.png" alt="Shqip"></a>
     </div>
 
     <nav class="top-navbar">

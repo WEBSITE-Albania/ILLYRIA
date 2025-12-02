@@ -6,112 +6,246 @@
   <title>Illyria - Rreth Nesh</title>
   <link rel="icon" type="image/png" href="../images/illyria logo.png">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:"Georgia", serif; }
-    body { background:#f8f4ef; color:#3a3a3a; }
+    * { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+  font-family: "Georgia", serif; 
+}
 
-    a { text-decoration:none; }
-    button {
-      border:none; background-color:#8b6f47; color:white;
-      padding:10px 20px; cursor:pointer; font-size:1rem;
-      border-radius:6px; transition:0.3s;
-    }
-    button:hover { background-color:#6d5535; }
+body { 
+  background: #f8f4ef; 
+  color: #3a3a3a; 
+}
 
-    /* HERO */
-    .hero { position:relative; width:100%; height:100vh;
-      background-image:url('../images/about us/main.jpeg');
-      background-size:cover; background-position:center;
-      display:flex; justify-content:center; align-items:center; padding:30px;
-    }
-    .hero-text {
-      position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);
-      display:inline-block; width:auto; padding:25px 35px; font-size:2rem;
-      font-weight:bold; color:#fff; text-align:center; border-radius:12px;
-      background: rgba(0,0,0,0.3); backdrop-filter:blur(6px); box-shadow:0 4px 12px rgba(0,0,0,0.3);
-    }
+a { 
+  text-decoration: none; 
+}
 
-    /* NAVBAR */
-    .top-navbar {
-      display:flex; gap:30px; position:absolute; top:30px; right:30px;
-      background: rgba(0,0,0,0.35); padding:10px 20px; border-radius:12px;
-    }
-    .top-navbar a { color:#f5f0e6; font-weight:bold; font-size:1.1rem; position:relative; transition:0.3s; }
-    .top-navbar a::after { content:''; position:absolute; bottom:-4px; left:0; width:0%; height:2px; background:#f5f0e6; transition:0.3s; }
-    .top-navbar a.active::after, .top-navbar a:hover::after { width:100%; }
+button {
+  border: none; 
+  background-color: #8b6f47; 
+  color: white;
+  padding: 10px 20px; 
+  cursor: pointer; 
+  font-size: 1rem;
+  border-radius: 6px; 
+  transition: 0.3s;
+}
 
-    /* ABOUT SECTIONS */
-    .about-section { padding:80px 10%; background:#F3E8D4; border-radius:20px; margin:40px 0; display:flex; flex-wrap:wrap; gap:40px; align-items:center; }
-    .about-section img { width:100%; max-width:500px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); flex:1 1 400px; }
-    .about-text { flex:1 1 400px; }
-    .about-text h2 { font-size:2.3rem; color:#8b6f47; margin-bottom:15px; }
-    .about-text p { font-size:1.1rem; line-height:1.6; color:#3a3a3a; margin-bottom:15px; }
+button:hover { 
+  background-color: #6d5535; 
+}
 
-    /* TEAM SECTION */
-    .team-section { text-align:center; padding:80px 10%; background:#f0ebe2; border-radius:20px; margin:40px 0; }
-    .team-section h2 { font-size:2.5rem; color:#8b6f47; margin-bottom:40px; }
-    .team-members { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; align-items: flex-end;}
-    .member { width:400px; }
-    .member img { width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2); margin-bottom:15px; }
-    .member h4 { font-size:1.2rem; color:#8b6f47; margin-bottom:5px; }
-    .member p { font-size:1rem; color:#3a3a3a; }
+/* HERO */
+.hero { 
+  position: relative; 
+  width: 100%; 
+  min-height: 100vh;
+  background-image: url('../images/about us/main.jpeg');
+  background-size: cover; 
+  background-position: center;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding: 30px;
+}
 
-    /* FOOTER */
-    footer { background:#2e2a25; color:white; padding:50px; display:flex; flex-wrap:wrap; gap:40px; }
-    .footer-section { flex:1 1 250px; }
-    .footer-section h3 { margin-bottom:15px; font-size:1.4rem; color:#d4b483; }
-    iframe { width:100%; height:250px; border:none; border-radius:8px; }
+.hero-text {
+  position: relative;
+  display: block; 
+  max-width: 90%; 
+  padding: 25px 35px; 
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-weight: bold; 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 12px;
+  background: rgba(0,0,0,0.3); 
+  backdrop-filter: blur(6px); 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
 
-    /* LEFT BLUR SECTION */
-    .left-blur {
-      position: absolute;
-      top: 30px;
-      left: 30px;
-      backdrop-filter: blur(10px);          /* blurs background behind overlay */
-      background: rgba(255,255,255,0.25);   /* semi-transparent white */
-      padding: 20px;
-      border-radius: 12px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: calc(100vh - 60px);          /* full height minus top/bottom margin */
-      align-items: center;
-    }
+/* NAVBAR */
+.top-navbar {
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 12px; 
+  position: absolute; 
+  top: 30px; 
+  right: 30px;
+  background: rgba(0,0,0,0.35); 
+  padding: 10px 20px; 
+  border-radius: 12px;
+  z-index: 10;
+}
 
-    /* Vertical name inside overlay */
-    .vertical-name {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #e9e2d7;
-      margin-bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.top-navbar a { 
+  color: #f5f0e6; 
+  font-weight: bold; 
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem); 
+  position: relative; 
+  transition: 0.3s; 
+}
 
-    .vertical-name span {
-      display: block;
-      line-height: 1.2;
-    }
+.top-navbar a::after { 
+  content: ''; 
+  position: absolute; 
+  bottom: -4px; 
+  left: 0; 
+  width: 0%; 
+  height: 2px; 
+  background: #f5f0e6; 
+  transition: 0.3s; 
+}
 
-    /* Social icons below vertical name */
-    .social-icons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.top-navbar a.active::after, 
+.top-navbar a:hover::after { 
+  width: 100%; 
+}
 
-    .social-icons a img {
-      width: 30px;
-      height: 30px;
-      filter: brightness(0) invert(1); /* white icons */
-      transition: 0.3s;
-    }
+/* ABOUT SECTION */
+.about-section { 
+  padding: 80px 10%; 
+  background: #F3E8D4; 
+  border-radius: 20px; 
+  margin: 40px 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 40px; 
+  align-items: center; 
+}
 
-    .social-icons a img:hover {
-      transform: scale(1.1);
-    }
+.about-section img { 
+  width: 100%; 
+  max-width: 500px; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+  flex: 1 1 400px; 
+}
 
-    /* LANGUAGE SELECTOR */
+.about-text { flex: 1 1 400px; }
+.about-text h2 { 
+  font-size: clamp(1.5rem, 2vw, 2.3rem); 
+  color: #8b6f47; 
+  margin-bottom: 15px; 
+}
+
+.about-text p { 
+  font-size: clamp(1rem, 1.1vw, 1.1rem); 
+  line-height: 1.6; 
+  color: #3a3a3a; 
+  margin-bottom: 15px; 
+}
+
+/* TEAM SECTION */
+.team-section { 
+  text-align: center; 
+  padding: 80px 10%; 
+  background: #f0ebe2; 
+  border-radius: 20px; 
+  margin: 40px 0; 
+}
+
+.team-section h2 { 
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem); 
+  color: #8b6f47; 
+  margin-bottom: 40px; 
+}
+
+.team-members { 
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 40px; 
+  align-items: flex-end;
+}
+
+.member { width: 400px; }
+
+.member img { 
+  width: 100%; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+  margin-bottom: 15px; 
+}
+
+.member h4 { 
+  font-size: clamp(1rem, 1.2vw, 1.2rem); 
+  color: #8b6f47; 
+  margin-bottom: 5px; 
+}
+
+.member p { 
+  font-size: clamp(0.9rem, 1vw, 1rem); 
+  color: #3a3a3a; 
+}
+
+/* FOOTER */
+footer { 
+  background: #2e2a25; 
+  color: white; 
+  padding: 50px; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 40px; 
+}
+
+.footer-section { flex: 1 1 250px; }
+.footer-section h3 { 
+  margin-bottom: 15px; 
+  font-size: clamp(1rem, 1.2vw, 1.4rem); 
+  color: #d4b483; 
+}
+
+iframe { width: 100%; height: 250px; border: none; border-radius: 8px; }
+
+/* LEFT BLUR SECTION */
+.left-blur {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.25);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 60px);
+  align-items: center;
+}
+
+/* Vertical name inside overlay */
+.vertical-name {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: bold;
+  color: #e9e2d7;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vertical-name span { display: block; line-height: 1.2; }
+
+/* Social icons below vertical name */
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
+
+.social-icons a img:hover { transform: scale(1.1); }
+
+/* LANGUAGE SELECTOR */
 .language-selector {
   position: fixed;
   bottom: 20px;
@@ -123,27 +257,45 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 9999; /* above other content */
+  z-index: 9999;
 }
 
 .language-selector img {
-  height: 45px;     /* circle size */
-  width: 45px;      /* must match height */
+  height: 45px;
+  width: 45px;
   cursor: pointer;
-  border-radius: 50%; /* makes the image a perfect circle */
-  object-fit: cover;  /* ensures the flag fills the circle */
+  border-radius: 50%;
+  object-fit: cover;
   transition: transform 0.3s;
-  border: 1px solid rgb(200, 192, 192); /* optional small border for style */
+  border: 1px solid rgb(200, 192, 192);
 }
 
-.language-selector img:hover {
-  transform: scale(1.1);
+.language-selector img:hover { transform: scale(1.1); }
+
+/* HEADINGS */
+h2, h4 {
+  font-weight: normal;
+  color: #fbf4e8;
 }
 
-h4, h2{
-      font-weight: normal;
-      color: #fbf4e8;
-    }
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .hero-text { font-size: clamp(1rem, 2vw, 1.5rem); padding: 15px 20px; }
+  .top-navbar { gap: 10px; padding: 8px 12px; top: 15px; right: 15px; }
+  .left-blur { height: auto; top: 15px; left: 15px; padding: 12px; }
+}
+
+@media (max-width: 768px) {
+  .about-section { flex-direction: column; text-align: center; gap: 30px; }
+  .team-members { flex-direction: column; align-items: center; }
+}
+
+@media (max-width: 480px) {
+  .top-navbar { flex-direction: column; top: 5px; right: 5px; }
+  .language-selector { bottom: 10px; right: 10px; }
+  .language-selector img { height: 40px; width: 40px; }
+  button { padding: 8px 15px; font-size: 0.9rem; }
+}
 
   </style>
 </head>
@@ -177,7 +329,7 @@ h4, h2{
     </div>
 
     <nav class="top-navbar">
-      <a href="iliria-main.html">Kryesore</a>
+      <a href="../index.html">Kryesore</a>
       <a href="restorant.html">Restorant</a>
       <a href="rooms.html">Dhomat</a>
       <a href="rreth nesh.html" class="active">Rreth Nesh</a>
