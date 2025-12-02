@@ -6,7 +6,7 @@
   <title>Illyria - About Us</title>
   <link rel="icon" type="image/png" href="../images/illyria logo.png">
   <style>
-    * { 
+   * { 
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
@@ -54,7 +54,7 @@ button:hover {
 .hero-text {
   position: relative;
   display: block; 
-  max-width: 90%; 
+  max-width: 70%; /* reduced to prevent overlap with left blur */
   padding: 25px 35px; 
   font-size: clamp(1.2rem, 2vw, 2rem);
   font-weight: bold; 
@@ -64,6 +64,9 @@ button:hover {
   background: rgba(0,0,0,0.3); 
   backdrop-filter: blur(6px); 
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 6; /* above left-blur */
 }
 
 /* NAVBAR */
@@ -280,7 +283,7 @@ h2, h4 {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-text { font-size: clamp(1rem, 2vw, 1.5rem); padding: 15px 20px; }
+  .hero-text { font-size: clamp(1rem, 2vw, 1.5rem); padding: 15px 20px; max-width: 75%; }
   .top-navbar { gap: 10px; padding: 8px 12px; top: 15px; right: 15px; }
   .left-blur { height: auto; top: 15px; left: 15px; padding: 12px; }
 }
@@ -288,6 +291,7 @@ h2, h4 {
 @media (max-width: 768px) {
   .about-section { flex-direction: column; text-align: center; gap: 30px; }
   .team-members { flex-direction: column; align-items: center; }
+  .hero-text { max-width: 90%; font-size: clamp(1rem, 3vw, 1.5rem); }
 }
 
 @media (max-width: 480px) {
@@ -295,6 +299,7 @@ h2, h4 {
   .language-selector { bottom: 10px; right: 10px; }
   .language-selector img { height: 40px; width: 40px; }
   button { padding: 8px 15px; font-size: 0.9rem; }
+  .hero-text { max-width: 95%; font-size: clamp(0.9rem, 3.5vw, 1.3rem); padding: 8px 12px; }
 }
 
   </style>

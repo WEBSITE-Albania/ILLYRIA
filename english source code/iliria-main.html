@@ -6,7 +6,7 @@
   <title>Illyria - Hotel & Restaurant</title>
   <link rel="icon" type="image/png" href="../images/illyria logo.png">
   <style>
-    * {
+   * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -46,22 +46,21 @@ button:hover {
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: center;   /* center content horizontally */
-  align-items: center;       /* center content vertically */
+  justify-content: center;
+  align-items: center;
   padding: 30px;
 }
 
-/* HERO TEXT - prevent overlap */
+/* HERO TEXT - fixed overlap issue */
 .hero-text {
-  position: relative;        /* changed from absolute */
+  position: relative;
   top: auto;
   left: auto;
   transform: none;
-  margin: 0 auto;
   display: block;
-  max-width: 90%;            /* text won't overflow */
+  max-width: 70%;             /* reduced from 90% */
   padding: 15px 25px;
-  font-size: clamp(1rem, 2vw, 2rem); /* responsive font size */
+  font-size: clamp(1rem, 2vw, 2rem);
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -69,22 +68,22 @@ button:hover {
   background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* TOP NAVBAR */
 .top-navbar {
   display: flex;
-  flex-wrap: wrap;           /* wrap links if too many */
-  justify-content: center;    /* center links if wrapped */
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 12px;
   position: absolute;
   top: 30px;
   right: 30px;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0, 0, 0, 0.3);
   padding: 10px 20px;
   border-radius: 12px;
   z-index: 10;
-  backdrop-filter: blur(6px);
 }
 
 .top-navbar a {
@@ -117,7 +116,7 @@ button:hover {
   top: 30px;
   left: 30px;
   backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.137);
   padding: 20px;
   border-radius: 12px;
   display: flex;
@@ -130,7 +129,7 @@ button:hover {
 .vertical-name {
   font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   font-weight: bold;
-  color: #e9e2d7;
+  color: #c6bdad;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
@@ -164,37 +163,48 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 100px 10%;
-  gap: 60px;
-  flex-wrap: wrap;           /* prevents overlap */
+  padding: 80px 10%;
+  gap: 40px;
+  flex-wrap: wrap;
   margin: 50px 0;
+  background-color: #e6d9c4;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content-section:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-.content-section img {
+.content-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.content-section img,
+.content-section video {
   width: 100%;
-  max-width: 500px;          /* prevent huge images on large screens */
+  max-width: 500px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .section-text {
   flex: 1;
-  min-width: 250px;          /* ensures proper wrapping */
+  min-width: 250px;
 }
 
 .section-text h2 {
   font-size: clamp(1.5rem, 2.3vw, 2.3rem);
-  color: #8b6f47;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: #4b4237;
 }
 
 .section-text p {
   font-size: clamp(1rem, 1.1vw, 1.1rem);
   line-height: 1.6rem;
+  margin-bottom: 20px;
   color: #3a3a3a;
 }
 
@@ -213,6 +223,59 @@ button:hover {
   transform: translateY(-3px);
 }
 
+/* TEAM / PHILOSOPHY SECTION */
+.team-section {
+  text-align: center;
+  padding: 80px 10%;
+  background: #f0ebe2;
+  border-radius: 20px;
+  margin: 40px 0;
+}
+
+.team-section h2 {
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  color: #8b6f47;
+  margin-bottom: 20px;
+}
+
+.team-section p {
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  line-height: 1.6;
+  color: #3a3a3a;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+}
+
+/* SCROLLING GALLERY */
+.scrolling-gallery {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.scrolling-inner {
+  display: inline-flex;
+  gap: 20px;
+  animation: scroll-left 40s linear infinite;
+}
+
+.scrolling-inner .member {
+  flex: 0 0 auto;
+}
+
+.scrolling-inner .member img {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  height: 450px;
+  width: auto;
+  display: block;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 /* FOOTER */
 footer {
   background: #2e2a25;
@@ -220,13 +283,13 @@ footer {
   padding: 50px;
   margin-top: 50px;
   display: flex;
-  flex-wrap: wrap;          /* wrap footer sections if screen small */
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 40px;
 }
 
 .footer-section {
-  flex: 1 1 250px;           /* responsive width */
+  flex: 1 1 250px;
 }
 
 .footer-section h3 {
@@ -270,26 +333,25 @@ iframe {
   transform: scale(1.1);
 }
 
-h4 {
+h2, h4 {
   font-weight: normal;
   color: #fbf4e8;
-  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 /* =========================
 RESPONSIVE BREAKPOINTS
 ========================= */
 @media (max-width: 1024px) {
-  .hero-text { font-size: clamp(1rem, 2vw, 1.5rem); padding: 12px 20px; }
-  .top-navbar { gap: 12px; padding: 8px 12px; top: 15px; right: 15px; }
+  .hero-text { max-width: 75%; padding: 12px 20px; font-size: clamp(1rem, 2vw, 1.5rem); }
+  .top-navbar { gap: 10px; padding: 8px 12px; top: 15px; right: 15px; }
   .left-blur { height: auto; top: 15px; left: 15px; padding: 12px; }
 }
 
 @media (max-width: 768px) {
   .content-section { flex-direction: column; padding: 60px 5%; gap: 30px; }
   .section-text { text-align: center; }
-  .vertical-name { flex-direction: row; gap: 5px; font-size: clamp(1.2rem, 2vw, 2rem); }
-  .hero-text { font-size: clamp(1rem, 2vw, 1.3rem); padding: 10px 15px; }
+  .team-section p { margin: 0 auto 30px auto; }
+  .hero-text { max-width: 90%; font-size: clamp(1rem, 3vw, 1.5rem); padding: 10px 15px; }
 }
 
 @media (max-width: 480px) {
@@ -297,10 +359,8 @@ RESPONSIVE BREAKPOINTS
   .language-selector { bottom: 10px; right: 10px; }
   .language-selector img { height: 40px; width: 40px; }
   button { padding: 8px 15px; font-size: 0.9rem; }
-  .vertical-name { font-size: clamp(1rem, 2vw, 1.5rem); flex-direction: row; gap: 3px; }
+  .hero-text { max-width: 95%; font-size: clamp(0.9rem, 3.5vw, 1.3rem); padding: 8px 12px; }
 }
-
-
   </style>
 </head>
 <body>
